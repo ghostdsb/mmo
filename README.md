@@ -10,3 +10,7 @@ https://ghostdsb.github.io/mmo/dist
 
 specific name:
 https://ghostdsb.github.io/mmo/dist/?name=some_name
+
+Controls:
+Arrow keys to move
+Space to attack
