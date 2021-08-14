@@ -8,7 +8,7 @@
     "start": "webpack serve --config webpack/webpack.dev.js",
     "start:local": "env-cmd -e local npm run start",
     "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
-    "bundle": "npm run build",
+    "bundle": "env-cmd -e production npm run build",
     "serve": "serve dist",
     "format": "prettier --check src/scripts/**",
     "format:write": "prettier --write src/scripts/**"
