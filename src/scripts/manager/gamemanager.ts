@@ -8,7 +8,7 @@ export class GameManager{
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = urlSearchParams.get("name");
         console.log("name", params)
-        this.playerId = params || "player" + Math.floor(Math.random() * 1000);
+        this.playerId = params || "P-" + Math.floor(Math.random() * 1000);
     }
     public static getPlayerId():string{
         return this.playerId

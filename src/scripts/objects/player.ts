@@ -12,6 +12,7 @@ export class Player{
     private _texture: string
     private _container: Phaser.GameObjects.Container
     private _gameObject: Phaser.GameObjects.Sprite
+    private _name: Phaser.GameObjects.Text
     private static GameObjectInstance: Player|null =null;
     public static getInstance():Player | null{
 		return this.GameObjectInstance;
@@ -33,7 +34,9 @@ export class Player{
 
     private _addGameObject(){
 		this._gameObject = this._scene.add.sprite(this._x,this._y,this._texture).setScale(this._scale).setZ(999).setOrigin(0)
+        this._name = this._scene.add.text(this._x+CELL_SIZE/2, this._y+CELL_SIZE/2, this._id, {color: "black"}).setOrigin(0.5)
 		this._container.add(this._gameObject)
+        this._container.add(this._name)
 	}
 
 	public getGameObject(){
@@ -44,15 +47,19 @@ export class Player{
         if(dir == "right"){
             this._x = this._gameObject.x + 80
             this._gameObject.setX(this._x)
+            this._name.setX(this._x+CELL_SIZE/2)
         }else if(dir == "left"){
             this._x = this._gameObject.x - 80
             this._gameObject.setX(this._x)
+            this._name.setX(this._x+CELL_SIZE/2)
         }else if(dir == "up"){
             this._y = this._gameObject.y - 80
             this._gameObject.setY(this._y)
+            this._name.setX(this._y+CELL_SIZE/2)
         }else if(dir == "down"){
             this._y = this._gameObject.y + 80
             this._gameObject.setY(this._y) 
+            this._name.setX(this._y+CELL_SIZE/2)
         }
     }
 
@@ -60,6 +67,7 @@ export class Player{
         this._x = CELL_SIZE*coordiate.x;
         this._y = CELL_SIZE*coordiate.y;
         this._gameObject.setPosition(this._x, this._y)
+        this._name.setPosition(this._x+CELL_SIZE/2, this._y+CELL_SIZE/2)
     }
 
     public getCoordinate(){
@@ -72,5 +80,6 @@ export class Player{
 
     public remove(){
         this._gameObject.setVisible(false)
+        this._name.setVisible(false)
     }
 }

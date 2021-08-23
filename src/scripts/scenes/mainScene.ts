@@ -83,7 +83,7 @@ export default class MainScene extends Phaser.Scene {
     if(data.id === GameManager.getPlayerId()){
       this.placePlayer(data.pos)
     }else{
-      this.placeEnemy(data.pos, data.id, )
+      this.placeEnemy(data.pos, data.id)
     }
     let enemies_id_list = Object.keys(data.players)
     for(let i=0; i< enemies_id_list.length; i++){
