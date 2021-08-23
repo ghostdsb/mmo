@@ -4,7 +4,7 @@ import { Tile } from '../objects/tile'
 import { Player } from '../objects/player'
 import { TileType } from '../enum'
 import { GameManager } from '../manager/gamemanager'
-import { CELL_SIZE, WORLD_SIZE } from '../game'
+import { CELL_SIZE, DEFAULT_HEIGHT, DEFAULT_WIDTH, WORLD_SIZE } from '../game'
 
 export default class MainScene extends Phaser.Scene {
   fpsText
@@ -33,6 +33,7 @@ export default class MainScene extends Phaser.Scene {
     this._playerContainer = this.add.container(0,0).setDepth(3)
     this.cursorKeys = this.scene.scene.input.keyboard.createCursorKeys();
     
+    this.add.text(DEFAULT_WIDTH/2, DEFAULT_HEIGHT*3/4, "ARROW KEYS TO MOVE\nSPACE TO ATTACK", {color: "black", align: "center", fontSize: "20px"}).setOrigin(0.5)
     // this.placePlayer()
 
     Network.joinWorld();
